@@ -61,11 +61,14 @@ disable:
 - servicelb
 ```
 
-After K3s is running with ServiceLB disabled, remove any old ServiceLB DaemonSets:
+After K3s is running with ServiceLB disabled, remove any old ServiceLB DaemonSets
+```
 kubectl get daemonset -n kube-system -o name | grep '^daemonset.apps/svclb-' | xargs -r kubectl delete -n kube-system
-
-Or reinstall K3s with ServiceLB disabled:
+```
+Or reinstall K3s with ServiceLB disabled
+```
 curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--disable=servicelb" sh -
+```
 
 ### Add the Longhorn Helm repository
 helm repo add longhorn https://longhorn.io
